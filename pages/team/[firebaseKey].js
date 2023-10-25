@@ -28,14 +28,14 @@ function ViewTeam() {
   return (
     <div>
       <div className="teamView">
-        <Card style={{ width: '350px', margin: '10px' }}>
+        <Card style={{ width: '400px', margin: '10px' }}>
           <Card.Body>
-            <Card.Title className="titleBack">{teamDetails.name}</Card.Title>
+            <Card.Title className="teamTitle">{teamDetails.name}</Card.Title>
             <Card.Img variant="top" src={teamDetails.image} alt={teamDetails.name} style={{ width: '350px' }} />
-            <h2>{teamDetails.volunteerid}</h2>
-            <h5>{teamDetails.captainid}</h5>
-            <h2>{teamDetails.gamesWon}</h2>
-            <h5>{teamDetails.gamesLost}</h5>
+            <h4>Sponsor Company: {teamDetails.volunteerid}</h4>
+            <h4>Team Captain: {teamDetails.captainid}</h4>
+            <h4>Games Won: {teamDetails.gamesWon}</h4>
+            <h4>Games Lost: {teamDetails.gamesLost}</h4>
             <Link href={`/team/edit/${teamDetails.firebaseKey}`} passHref>
               <Button className="editBtn m-2" variant="info">EDIT</Button>
             </Link>

@@ -9,6 +9,7 @@ const intialState = {
   image: '',
   name: '',
   volunteerid: '',
+  captainid: '',
 };
 
 export default function TeamForm({ teamObj }) {
@@ -75,6 +76,16 @@ export default function TeamForm({ teamObj }) {
             onChange={handleChange}
           />
         </Form.Group>
+        <Form.Group className="mb-3">
+          <Form.Label>Company Sponsor</Form.Label>
+          <Form.Control
+            type="text"
+            placeholder="Enter Captain Name"
+            name="captainid"
+            value={formInput.captainid}
+            onChange={handleChange}
+          />
+        </Form.Group>
         <Button variant="outline-secondary" type="submit">
           Submit
         </Button>
@@ -88,6 +99,7 @@ TeamForm.propTypes = {
     image: PropTypes.string,
     name: PropTypes.string,
     volunteerid: PropTypes.string,
+    captainid: PropTypes.string,
     firebaseKey: PropTypes.string,
   }),
 };

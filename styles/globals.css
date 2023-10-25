@@ -40,3 +40,11 @@ align-items: center;
 .welcomeTitle {
   margin-top: 120px;
 }
+
+/* Team cards */
+.teamTitle {
+  font-size: 40px;
+}
+.teamImg {
+  object-fit: cover;
+}
