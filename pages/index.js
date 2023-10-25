@@ -5,7 +5,6 @@ import { useAuth } from '../utils/context/authContext';
 function Home() {
   const { user } = useAuth();
 
-  // const user = { displayName: 'Shari' }; // TODO: COMMENT OUT FOR AUTH
   return (
     <div className="text-center my-4">
       <h1 className="welcomeTitle">Welcome {user.displayName}</h1>

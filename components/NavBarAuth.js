@@ -23,15 +23,13 @@ export default function NavBarAuth() {
             <Link passHref href="/teams">
               <Nav.Link>Team</Nav.Link>
             </Link>
-            <Link passHref href="/">
-              <Nav.Link>View Players</Nav.Link>
+            <Link passHref href="/players">
+              <Nav.Link>Players</Nav.Link>
             </Link>
-            <Link passHref href="/">
-              <Nav.Link>Create Players</Nav.Link>
+            <Link passHref href="/player/new">
+              <Nav.Link>New Players</Nav.Link>
             </Link>
-            <Button variant="outline-secondary" type="button" size="sm" className="signOutBtnNav" onClick={signOut}>
-              Sign Out
-            </Button>
+            <Button variant="danger" onClick={signOut}>Sign Out</Button>
           </Nav>
         </Navbar.Collapse>
       </Container>
