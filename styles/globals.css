@@ -18,5 +18,10 @@ a {
 }
 
 body {
-  background-color: #88effd;
+  background-color: black;
+}
+
+.card {
+  background-color: gray;
+  color: white;
 }
