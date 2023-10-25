@@ -104,6 +104,7 @@ function PlayerForm({ obj }) {
         type="switch"
         id="captain"
         name="captain"
+        label="Team Captain"
         aria-label="Team Captain"
         checked={formInput.captain}
         onChange={(e) => {
