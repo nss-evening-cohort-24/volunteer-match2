@@ -1,0 +1,22 @@
+{
+  "-NhUcXDtEYdzbZFMqvty": {
+    "firebaseKey": "-NhUcXDtEYdzbZFMqvty",
+    "volunteerid": "1",
+    "captainid": "1",
+    "name": "Lions",
+    "image": "http://dummyimage.com/196x100.png/5fa2dd/ffffff",
+    "gamesWon": 2,
+    "gamesLost": 2,
+    "uid": "XmTGq96FKdVcWAvNmCeW9cztCYy1"
+  },
+  "-NhUcXDuNoXHgrCIqeJ8": {
+    "firebaseKey": "-NhUcXDuNoXHgrCIqeJ8",
+    "volunteerid": "2",
+    "captainid": "2",
+    "name": "Titans",
+    "image": "http://dummyimage.com/124x100.png/5fa2dd/ffffff",
+    "gamesWon": 3,
+    "gamesLost": 5,
+    "uid": "XmTGq96FKdVcWAvNmCeW9cztCYy1"
+  }
+}
