@@ -16,7 +16,7 @@ function PlayerCard({ playerObj, onUpdate }) {
     <Card style={{ width: '18rem', margin: '10px' }}>
       <Card.Img variant="top" src={playerObj.image} alt={playerObj.position} style={{ height: '400px' }} />
       <Card.Body>
-        <Card.Title>{playerObj.first_name} {playerObj.last_name}</Card.Title>
+        <Card.Title>{playerObj.first_name} {playerObj.last_name} {playerObj.captain && <span style={{ color: '#fafafa' }}>⚽</span>}</Card.Title>
         <h6>Position: {playerObj.position}</h6>
         <Link href={`/player/${playerObj.firebaseKey}`} passHref>
           <Button variant="dark" className="m-2">VIEW</Button>
@@ -38,6 +38,7 @@ PlayerCard.propTypes = {
     first_name: PropTypes.string,
     last_name: PropTypes.string,
     position: PropTypes.string,
+    captain: PropTypes.bool,
     firebaseKey: PropTypes.string,
   }).isRequired,
   onUpdate: PropTypes.func.isRequired,

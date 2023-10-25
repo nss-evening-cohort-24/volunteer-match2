@@ -99,6 +99,21 @@ function PlayerForm({ obj }) {
         />
       </FloatingLabel>
 
+      <Form.Check
+        className="text-white mb-3"
+        type="switch"
+        id="captain"
+        name="captain"
+        aria-label="Team Captain"
+        checked={formInput.captain}
+        onChange={(e) => {
+          setFormInput((prevState) => ({
+            ...prevState,
+            captain: e.target.checked,
+          }));
+        }}
+      />
+
       {/* SUBMIT BUTTON  */}
       <Button type="submit">{obj.firebaseKey ? 'Update' : 'Add'} Player </Button>
     </Form>
