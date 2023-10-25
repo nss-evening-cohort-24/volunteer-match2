@@ -14,11 +14,11 @@ function TeamCard({ teamObj, onUpdate }) {
 
   return (
     <Card style={{ width: '18rem', margin: '10px' }}>
-      <Card.Img variant="top" src={teamObj.image} alt={teamObj.name} style={{ height: '350px' }} />
+      <Card.Img className="teamImg" variant="top" src={teamObj.image} alt={teamObj.name} style={{ height: '350px' }} />
       <Card.Body>
-        <Card.Title>{teamObj.name}</Card.Title>
-        <h2>Sponsor Company: {teamObj.volunteerid}</h2>
-        <h5>{teamObj.captainid}<span style={{ color: '#fafafa' }}>⚽</span></h5>
+        <Card.Title className="teamTitle">{teamObj.name}</Card.Title>
+        <h4>Sponsor Company: {teamObj.volunteerid}</h4>
+        <h4>{teamObj.captainid}<span style={{ color: '#fafafa' }}>⚽</span></h4>
         <div className="wrapper">
           <Link href={`/team/${teamObj.firebaseKey}`} passHref>
             <Button variant="primary" className="viewBtn m-2">VIEW</Button>
