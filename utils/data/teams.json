@@ -1,0 +1,22 @@
+{
+  "-NhUcXDtEYdzbZFMqvty": {
+    "firebaseKey": "-NhUcXDtEYdzbZFMqvty",
+    "volunteerid": "1",
+    "captainid": "1",
+    "name": "Lions",
+    "image": "https://i.pinimg.com/736x/17/a5/9b/17a59b3aad3079203564456c7762808c.jpg",
+    "gamesWon": 2,
+    "gamesLost": 2,
+    "uid": "XmTGq96FKdVcWAvNmCeW9cztCYy1"
+  },
+  "-NhUcXDuNoXHgrCIqeJ8": {
+    "firebaseKey": "-NhUcXDuNoXHgrCIqeJ8",
+    "volunteerid": "2",
+    "captainid": "2",
+    "name": "Sharks",
+    "image": "https://t3.ftcdn.net/jpg/02/10/96/00/360_F_210960015_iV3PqOd8XhlFKbZRO98rKFyXDvHE9b7h.jpg",
+    "gamesWon": 3,
+    "gamesLost": 5,
+    "uid": "XmTGq96FKdVcWAvNmCeW9cztCYy1"
+  }
+}
