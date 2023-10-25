@@ -17,8 +17,8 @@ function TeamCard({ teamObj, onUpdate }) {
       <Card.Img variant="top" src={teamObj.image} alt={teamObj.name} style={{ height: '350px' }} />
       <Card.Body>
         <Card.Title>{teamObj.name}</Card.Title>
-        <h2>{teamObj.volunteerid}</h2>
-        <h5>{teamObj.captainid}</h5>
+        <h2>Sponsor Company: {teamObj.volunteerid}</h2>
+        <h5>{teamObj.captainid}<span style={{ color: '#fafafa' }}>⚽</span></h5>
         <div className="wrapper">
           <Link href={`/team/${teamObj.firebaseKey}`} passHref>
             <Button variant="primary" className="viewBtn m-2">VIEW</Button>
