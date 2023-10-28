@@ -21,7 +21,7 @@ const getPlayers = (uid) => new Promise((resolve, reject) => {
 });
 
 const getPlayersByTeam = (firebaseKey) => new Promise((resolve, reject) => {
-  fetch(`${endpoint}/players.json?orderBy=team_id"&equalTo="${firebaseKey}"`, {
+  fetch(`${endpoint}/players.json?orderBy="team_id"&equalTo="${firebaseKey}"`, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
