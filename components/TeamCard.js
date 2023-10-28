@@ -8,7 +8,7 @@ import { deleteSingleTeam } from '../api/teamData';
 function TeamCard({ teamObj, onUpdate }) {
   const deleteThisTeam = () => {
     if (window.confirm(`Delete ${teamObj.name}?`)) {
-      deleteSingleTeam(teamObj.firebaseKey).then(() => onUpdate());
+      deleteSingleTeam(teamObj.id).then(() => onUpdate());
     }
   };
 
@@ -17,10 +17,10 @@ function TeamCard({ teamObj, onUpdate }) {
       <Card.Img className="teamImg" variant="top" src={teamObj.image} alt={teamObj.name} style={{ height: '350px' }} />
       <Card.Body>
         <Card.Title className="teamTitle">{teamObj.name}</Card.Title>
-        <h4>Sponsor Company: {teamObj.volunteerid}</h4>
-        <h4>{teamObj.captainid}<span style={{ color: '#fafafa' }}>⚽</span></h4>
+        <h4>Sponsor Company: {teamObj.volunteerId}</h4>
+        <h4>{teamObj.captainId}<span style={{ color: '#fafafa' }}>⚽</span></h4>
         <div className="wrapper">
-          <Link href={`/team/${teamObj.firebaseKey}`} passHref>
+          <Link href={`/team/${teamObj.id}`} passHref>
             <Button variant="primary" className="viewBtn m-2">VIEW</Button>
           </Link>
           <Button variant="warning" onClick={deleteThisTeam} className="deleteBtn m-2">
@@ -36,9 +36,9 @@ TeamCard.propTypes = {
   teamObj: PropTypes.shape({
     image: PropTypes.string,
     name: PropTypes.string,
-    volunteerid: PropTypes.string,
-    captainid: PropTypes.string,
-    firebaseKey: PropTypes.string,
+    volunteerId: PropTypes.string,
+    captainId: PropTypes.number,
+    id: PropTypes.number,
   }).isRequired,
   onUpdate: PropTypes.func.isRequired,
 };

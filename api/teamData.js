@@ -1,20 +1,18 @@
-import { clientCredentials } from '../utils/client';
+const endpoint = 'https://localhost:7047';
 
-const endpoint = clientCredentials.databaseURL;
-
-const getTeams = (uid) => new Promise((resolve, reject) => {
-  fetch(`${endpoint}/teams.json?orderBy="uid"&equalTo="${uid}"`, {
+const getTeams = () => new Promise((resolve, reject) => {
+  fetch(`${endpoint}/api/teams`, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
     },
   })
     .then((response) => response.json())
-    .then((data) => resolve(Object.values(data)))
+    .then((data) => resolve(data))
     .catch(reject);
 });
 const createTeams = (payload) => new Promise((resolve, reject) => {
-  fetch(`${endpoint}/teams.json`, {
+  fetch(`${endpoint}/api/teams`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -24,8 +22,8 @@ const createTeams = (payload) => new Promise((resolve, reject) => {
     .then((data) => resolve(data))
     .catch(reject);
 });
-const getSingleTeam = (firebaseKey) => new Promise((resolve, reject) => {
-  fetch(`${endpoint}/teams/${firebaseKey}.json`, {
+const getSingleTeam = (id) => new Promise((resolve, reject) => {
+  fetch(`${endpoint}/api/teams/${id}`, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
@@ -36,7 +34,7 @@ const getSingleTeam = (firebaseKey) => new Promise((resolve, reject) => {
     .catch(reject);
 });
 const updateTeam = (payload) => new Promise((resolve, reject) => {
-  fetch(`${endpoint}/teams/${payload.firebaseKey}.json`, {
+  fetch(`${endpoint}/api/teams/${payload.id}`, {
     method: 'PATCH',
     headers: {
       'Content-Type': 'application/json',
@@ -47,8 +45,8 @@ const updateTeam = (payload) => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
-const deleteSingleTeam = (firebaseKey) => new Promise((resolve, reject) => {
-  fetch(`${endpoint}/teams/${firebaseKey}.json`, {
+const deleteSingleTeam = (id) => new Promise((resolve, reject) => {
+  fetch(`${endpoint}/api/teams/${id}`, {
     method: 'DELETE',
     headers: {
       'Content-Type': 'application/json',

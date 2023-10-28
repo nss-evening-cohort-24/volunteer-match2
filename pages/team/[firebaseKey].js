@@ -9,21 +9,21 @@ import { deleteSingleTeam, getSingleTeam } from '../../api/teamData';
 function ViewTeam() {
   const [teamDetails, setTeamDetails] = useState({});
   const router = useRouter();
-  const { firebaseKey } = router.query;
+  const { id } = router.query;
 
   const deleteThisTeam = () => {
     if (window.confirm(`Delete ${teamDetails.name}?`)) {
-      deleteSingleTeam(teamDetails.firebaseKey).then(() => router.push('/teams'));
+      deleteSingleTeam(teamDetails.id).then(() => router.push('/teams'));
     }
   };
 
   const getTDetails = () => {
-    getSingleTeam(firebaseKey).then(setTeamDetails);
+    getSingleTeam(id).then(setTeamDetails);
   };
   // make call to API layer to get the data
   useEffect(() => {
     getTDetails();
-  }, [firebaseKey]);
+  }, [id]);
 
   return (
     <div>
@@ -32,11 +32,11 @@ function ViewTeam() {
           <Card.Body>
             <Card.Title className="teamTitle">{teamDetails.name}</Card.Title>
             <Card.Img variant="top" src={teamDetails.image} alt={teamDetails.name} style={{ width: '350px' }} />
-            <h4>Sponsor Company: {teamDetails.volunteerid}</h4>
-            <h4>Team Captain: {teamDetails.captainid}</h4>
+            <h4>Sponsor Company: {teamDetails.volunteerId}</h4>
+            <h4>Team Captain: {teamDetails.captainId}</h4>
             <h4>Games Won: {teamDetails.gamesWon}</h4>
             <h4>Games Lost: {teamDetails.gamesLost}</h4>
-            <Link href={`/team/edit/${teamDetails.firebaseKey}`} passHref>
+            <Link href={`/team/edit/${teamDetails.id}`} passHref>
               <Button className="editBtn m-2" variant="info">EDIT</Button>
             </Link>
             <Button variant="warning" onClick={deleteThisTeam} className="deleteBtn m-2">
