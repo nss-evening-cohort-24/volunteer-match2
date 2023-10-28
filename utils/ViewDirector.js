@@ -3,6 +3,7 @@ import { useAuth } from './context/authContext';
 import Loading from '../components/Loading';
 import Signin from '../components/Signin';
 import NavBarAuth from '../components/NavBarAuth';
+import { checkUser, postUser } from './auth';
 
 const ViewDirectorBasedOnUserAuthStatus = ({ component: Component, pageProps }) => {
   const { user, userLoading } = useAuth();
@@ -14,6 +15,16 @@ const ViewDirectorBasedOnUserAuthStatus = ({ component: Component, pageProps }) 
 
   // what the user should see if they are logged in
   if (user) {
+    checkUser(user.uid).then((userResp) => {
+      if (!userResp) {
+        const volunteer = {
+          name: user.displayName,
+          uid: user.uid,
+        };
+        postUser(volunteer).then(() => {});
+      }
+    });
+
     return (
       <>
         <NavBarAuth /> {/* NavBar only visible if user is logged in and is in every view */}
