@@ -4,6 +4,7 @@ import { Button, Form } from 'react-bootstrap';
 import { useRouter } from 'next/router';
 import { useAuth } from '../../utils/context/authContext';
 import { createTeams, updateTeam } from '../../api/teamData';
+import { getPlayers } from '../../api/playerData';
 
 const intialState = {
   image: '',
@@ -12,15 +13,18 @@ const intialState = {
   captainid: '',
 };
 
-export default function TeamForm({ teamObj }) {
+export default function TeamForm({ obj }) {
   const { user } = useAuth();
   const [formInput, setFormInput] = useState({ ...intialState, uid: user.uid });
+  const [players, setPlayers] = useState([]);
   const router = useRouter();
 
   useEffect(() => {
-    if (teamObj.firebaseKey) setFormInput(teamObj);
-  }, [teamObj, user]);
-  console.warn(teamObj.firebaseKey);
+    getPlayers(user.uid).then(setPlayers);
+
+    if (obj.firebaseKey) setFormInput(obj);
+  }, [obj, user]);
+  console.warn(players);
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormInput((prevState) => ({
@@ -32,8 +36,8 @@ export default function TeamForm({ teamObj }) {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (teamObj.firebaseKey) {
-      updateTeam(formInput).then(() => router.push(`/team/${teamObj.firebaseKey}`));
+    if (obj.firebaseKey) {
+      updateTeam(formInput).then(() => router.push(`/team/${obj.firebaseKey}`));
     } else {
       const payload = { ...formInput, uid: user.uid };
       createTeams(payload).then(({ name }) => {
@@ -54,6 +58,7 @@ export default function TeamForm({ teamObj }) {
             name="image"
             value={formInput.image}
             onChange={handleChange}
+            required
           />
         </Form.Group>
         <Form.Group className="mb-3">
@@ -64,6 +69,7 @@ export default function TeamForm({ teamObj }) {
             name="name"
             value={formInput.name}
             onChange={handleChange}
+            required
           />
         </Form.Group>
         <Form.Group className="mb-3">
@@ -74,17 +80,30 @@ export default function TeamForm({ teamObj }) {
             name="volunteerid"
             value={formInput.volunteerid}
             onChange={handleChange}
+            required
           />
         </Form.Group>
         <Form.Group className="mb-3">
-          <Form.Label>Company Sponsor</Form.Label>
-          <Form.Control
+          <Form.Label>Captain</Form.Label>
+          <Form.Select
             type="text"
             placeholder="Enter Captain Name"
             name="captainid"
             value={formInput.captainid}
             onChange={handleChange}
-          />
+          >
+            <option value="">Select a Captain</option>
+            {
+            players.map((player) => (
+              <option
+                key={player.firebaseKey}
+                value={player.firebaseKey}
+              >
+                {player.name}
+              </option>
+            ))
+          }
+          </Form.Select>
         </Form.Group>
         <Button variant="outline-secondary" type="submit">
           Submit
@@ -95,7 +114,7 @@ export default function TeamForm({ teamObj }) {
 }
 
 TeamForm.propTypes = {
-  teamObj: PropTypes.shape({
+  obj: PropTypes.shape({
     image: PropTypes.string,
     name: PropTypes.string,
     volunteerid: PropTypes.string,
@@ -105,5 +124,5 @@ TeamForm.propTypes = {
 };
 
 TeamForm.defaultProps = {
-  teamObj: intialState,
+  obj: intialState,
 };

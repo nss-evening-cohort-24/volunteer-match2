@@ -29,6 +29,9 @@ export default function NavBarAuth() {
             <Link passHref href="/player/new">
               <Nav.Link>New Players</Nav.Link>
             </Link>
+            <Link passHref href="/games">
+              <Nav.Link>Games</Nav.Link>
+            </Link>
             <Button variant="danger" onClick={signOut}>Sign Out</Button>
           </Nav>
         </Navbar.Collapse>

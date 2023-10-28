@@ -3,8 +3,8 @@ import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import { Card, Button } from 'react-bootstrap';
 import Link from 'next/link';
-// import PropTypes from 'prop-types';
 import { deleteSingleTeam, getSingleTeam } from '../../api/teamData';
+// import PlayerCard from '../../components/PlayerCard';
 
 function ViewTeam() {
   const [teamDetails, setTeamDetails] = useState({});
@@ -24,7 +24,7 @@ function ViewTeam() {
   useEffect(() => {
     getTDetails();
   }, [firebaseKey]);
-  console.warn(teamDetails);
+
   return (
     <div>
       <div className="teamView">
@@ -45,24 +45,16 @@ function ViewTeam() {
           </Card.Body>
         </Card>
       </div>
-      {/* <div className="viewMembers">{teamDetails.members?.map((member) => (
-        <><MemberCard key={member.firebaseKey} memberObj={member} onUpdate={getTDetails} /><Link href={`/team/edit/${teamObj.firebaseKey}`} passHref>
-          <Button className="editBtn m-2" variant="info">EDIT</Button>
-        </Link></>
+      {/* <div className="viewPlayers">{teamDetails.players?.map((player) => (
+        <><PlayerCard key={player.firebaseKey} playerObj={player} onUpdate={getTDetails} />
+          <Link href={`/team/edit/${teamDetails.firebaseKey}`} passHref>
+            <Button className="editBtn m-2" variant="info">EDIT</Button>
+          </Link>
+        </>
       ))}
       </div> */}
     </div>
   );
 }
-// ViewTeam.propTypes = {
-//   teamDetails: PropTypes.shape({
-//     image: PropTypes.string,
-//     name: PropTypes.string,
-//     volunteerid: PropTypes.string,
-//     captainid: PropTypes.string,
-//     firebaseKey: PropTypes.string,
-//   }).isRequired,
-//   onUpdate: PropTypes.func.isRequired,
-// };
 
 export default ViewTeam;

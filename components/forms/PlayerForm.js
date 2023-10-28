@@ -6,6 +6,7 @@ import Form from 'react-bootstrap/Form';
 import { Button } from 'react-bootstrap';
 import { useAuth } from '../../utils/context/authContext';
 import { createPlayer, updatePlayers } from '../../api/playerData';
+import { getTeams } from '../../api/teamData';
 
 const initialState = {
   image: '',
@@ -13,14 +14,17 @@ const initialState = {
   last_name: '',
   position: '',
   team_id: '',
+  // captain: 'false',
 };
 
 function PlayerForm({ obj }) {
+  const [teams, setTeams] = useState([]);
   const [formInput, setFormInput] = useState(initialState);
   const router = useRouter();
   const { user } = useAuth();
 
   useEffect(() => {
+    getTeams(user.uid).then(setTeams);
     if (obj.firebaseKey) setFormInput(obj);
   }, [obj, user]);
 
@@ -98,7 +102,28 @@ function PlayerForm({ obj }) {
           required
         />
       </FloatingLabel>
-
+      <FloatingLabel controlId="floatingTextarea" label="Team" className="mb-3">
+        <Form.Select
+          aria-label="Team"
+          name="team_id"
+          onChange={handleChange}
+          className="mb-3"
+          value={formInput.team_id}
+          required
+        >
+          <option value="">Select a Team</option>
+          {
+            teams.map((team) => (
+              <option
+                key={team.firebaseKey}
+                value={team.firebaseKey}
+              >
+                {team.name}
+              </option>
+            ))
+          }
+        </Form.Select>
+      </FloatingLabel>
       <Form.Check
         className="text-white mb-3"
         type="switch"
@@ -113,6 +138,8 @@ function PlayerForm({ obj }) {
             captain: e.target.checked,
           }));
         }}
+        required
+
       />
 
       {/* SUBMIT BUTTON  */}

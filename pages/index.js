@@ -15,7 +15,7 @@ function Home() {
         <Link passHref href="/">
           <Button variant="primary" className="viewBtn indexBtn m-2">View Players</Button>
         </Link>
-        <Link passHref href="/">
+        <Link passHref href="/game/new">
           <Button variant="primary" className="viewBtn indexBtn m-2">Schedule Game</Button>
         </Link>
       </div>
