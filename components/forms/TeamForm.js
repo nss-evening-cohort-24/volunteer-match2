@@ -9,7 +9,7 @@ import { getPlayers } from '../../api/playerData';
 const intialState = {
   image: '',
   name: '',
-  captainId: '',
+  sponsor: '',
 };
 
 export default function TeamForm({ obj }) {
@@ -24,6 +24,7 @@ export default function TeamForm({ obj }) {
     if (obj.id) setFormInput(obj);
   }, [obj, user]);
   console.warn(players);
+  console.warn(formInput);
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormInput((prevState) => ({
@@ -68,17 +69,17 @@ export default function TeamForm({ obj }) {
             required
           />
         </Form.Group>
-        {/* <Form.Group className="mb-3">
+        <Form.Group className="mb-3">
           <Form.Label>Company Sponsor</Form.Label>
           <Form.Control
             type="text"
             placeholder="Enter Company Name"
-            name="volunteerId"
-            value={formInput.volunteerId}
+            name="sponsor"
+            value={formInput.sponsor}
             onChange={handleChange}
             required
           />
-        </Form.Group> */}
+        </Form.Group>
         {/* <Form.Group className="mb-3">
           <Form.Label>Captain</Form.Label>
           <Form.Select

@@ -2,8 +2,8 @@ import { clientCredentials } from '../utils/client';
 
 const endpoint = clientCredentials.databaseURL;
 
-const getPlayers = (uid) => new Promise((resolve, reject) => {
-  fetch(`${endpoint}/players.json?orderBy="uid"&equalTo="${uid}"`, {
+const getPlayers = () => new Promise((resolve, reject) => {
+  fetch(`${endpoint}/api/players`, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
@@ -20,8 +20,8 @@ const getPlayers = (uid) => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
-const getPlayersByTeam = (firebaseKey) => new Promise((resolve, reject) => {
-  fetch(`${endpoint}/players.json?orderBy="team_id"&equalTo="${firebaseKey}"`, {
+const getPlayersByTeam = (teamId) => new Promise((resolve, reject) => {
+  fetch(`${endpoint}/api/teams/${teamId}/players`, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
@@ -67,7 +67,7 @@ const deletePlayer = (firebaseKey) => new Promise((resolve, reject) => {
 });
 const updatePlayers = (payload) => new Promise((resolve, reject) => {
   fetch(`${endpoint}/players/${payload.firebaseKey}.json`, {
-    method: 'PATCH',
+    method: 'PUT',
     headers: {
       'Content-Type': 'application/json',
     },
@@ -77,8 +77,8 @@ const updatePlayers = (payload) => new Promise((resolve, reject) => {
     .then((data) => resolve(data))
     .catch(reject);
 });
-const playerCaptain = (uid) => new Promise((resolve, reject) => {
-  fetch(`${endpoint}/players.json?orderBy="uid"&equalTo="${uid}"`, {
+const playerCaptain = () => new Promise((resolve, reject) => {
+  fetch(`${endpoint}/api/players/captains`, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
@@ -86,8 +86,8 @@ const playerCaptain = (uid) => new Promise((resolve, reject) => {
   })
     .then((response) => response.json())
     .then((data) => {
-      const favorites = Object.values(data).filter((item) => item.favorite);
-      resolve(favorites);
+      const captain = Object.values(data).filter((item) => item.isCaptain);
+      resolve(captain);
     })
     .catch(reject);
 });
