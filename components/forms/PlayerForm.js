@@ -13,7 +13,7 @@ const initialState = {
   first_name: '',
   last_name: '',
   position: '',
-  team_id: '',
+  teamId: '',
   // captain: 'false',
 };
 
@@ -24,7 +24,7 @@ function PlayerForm({ obj }) {
   const { user } = useAuth();
 
   useEffect(() => {
-    getTeams(user.uid).then(setTeams);
+    getTeams().then(setTeams);
     if (obj.firebaseKey) setFormInput(obj);
   }, [obj, user]);
 
@@ -105,18 +105,18 @@ function PlayerForm({ obj }) {
       <FloatingLabel controlId="floatingTextarea" label="Team" className="mb-3">
         <Form.Select
           aria-label="Team"
-          name="team_id"
+          name="teamId"
           onChange={handleChange}
           className="mb-3"
-          value={formInput.team_id}
+          value={formInput.teamId}
           required
         >
           <option value="">Select a Team</option>
           {
             teams.map((team) => (
               <option
-                key={team.firebaseKey}
-                value={team.firebaseKey}
+                key={team.id}
+                value={team.id}
               >
                 {team.name}
               </option>
@@ -154,7 +154,7 @@ PlayerForm.propTypes = {
     first_name: PropTypes.string,
     last_name: PropTypes.string,
     position: PropTypes.string,
-    team_id: PropTypes.string,
+    teamId: PropTypes.string,
     firebaseKey: PropTypes.string,
   }),
 };

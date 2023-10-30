@@ -4,31 +4,31 @@ import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import Link from 'next/link';
 import { deletePlayer } from '../api/playerData';
-import { getTeamDetails } from '../api/mergedData';
+import { getSingleTeam } from '../api/teamData';
 
 function PlayerCard({ playerObj, onUpdate }) {
   const [team, setTeam] = useState({});
 
   const deleteThisPlayer = () => {
-    if (window.confirm(`Delete ${playerObj.first_name}?`)) {
-      deletePlayer(playerObj.firebaseKey).then(() => onUpdate());
+    if (window.confirm(`Delete ${playerObj.firstName}?`)) {
+      deletePlayer(playerObj.id).then(() => onUpdate());
     }
   };
   useEffect(() => {
-    getTeamDetails(playerObj.team_id).then(setTeam);
+    getSingleTeam(playerObj.teamId).then(setTeam);
   }, []);
 
   return (
     <Card style={{ width: '18rem', margin: '10px' }}>
       <Card.Img variant="top" src={playerObj.image} alt={playerObj.position} style={{ height: '400px' }} />
       <Card.Body>
-        <Card.Title>{playerObj.first_name} {playerObj.last_name} {playerObj.captain && <span style={{ color: '#fafafa' }}>⚽</span>}</Card.Title>
+        <Card.Title>{playerObj.firstName} {playerObj.lastName} {playerObj.isCaptain && <span style={{ color: '#fafafa' }}>⚽</span>}</Card.Title>
         <h6>Position: {playerObj.position}</h6>
         <Card.Text>{team.name}</Card.Text>
-        <Link href={`/player/${playerObj.firebaseKey}`} passHref>
+        <Link href={`/player/${playerObj.id}`} passHref>
           <Button variant="dark" className="m-2">VIEW</Button>
         </Link>
-        <Link href={`/player/edit/${playerObj.firebaseKey}`} passHref>
+        <Link href={`/player/edit/${playerObj.id}`} passHref>
           <Button variant="dark">EDIT</Button>
         </Link>
         <Button variant="danger" onClick={deleteThisPlayer} className="m-2">
@@ -42,12 +42,12 @@ function PlayerCard({ playerObj, onUpdate }) {
 PlayerCard.propTypes = {
   playerObj: PropTypes.shape({
     image: PropTypes.string,
-    team_id: PropTypes.string,
-    first_name: PropTypes.string,
-    last_name: PropTypes.string,
+    teamId: PropTypes.string,
+    firstName: PropTypes.string,
+    lastName: PropTypes.string,
     position: PropTypes.string,
-    captain: PropTypes.bool,
-    firebaseKey: PropTypes.string,
+    isCaptain: PropTypes.bool,
+    id: PropTypes.string,
   }).isRequired,
   onUpdate: PropTypes.func.isRequired,
 };

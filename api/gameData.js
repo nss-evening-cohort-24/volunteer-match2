@@ -2,8 +2,8 @@ import { clientCredentials } from '../utils/client';
 
 const endpoint = clientCredentials.databaseURL;
 
-const getGames = (uid) => new Promise((resolve, reject) => {
-  fetch(`${endpoint}/games.json?orderBy="uid"&equalTo="${uid}"`, {
+const getGames = () => new Promise((resolve, reject) => {
+  fetch(`${endpoint}/api/games`, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
@@ -20,7 +20,7 @@ const getGames = (uid) => new Promise((resolve, reject) => {
     .catch(reject);
 });
 const createGame = (payload) => new Promise((resolve, reject) => {
-  fetch(`${endpoint}/games.json`, {
+  fetch(`${endpoint}/api/games`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -31,8 +31,8 @@ const createGame = (payload) => new Promise((resolve, reject) => {
     .then((data) => resolve(data))
     .catch(reject);
 });
-const deleteGame = (firebaseKey) => new Promise((resolve, reject) => {
-  fetch(`${endpoint}/games/${firebaseKey}.json`, {
+const deleteGame = (id) => new Promise((resolve, reject) => {
+  fetch(`${endpoint}/api/games/${id}`, {
     method: 'DELETE',
     headers: {
       'Content-Type': 'application/json',
@@ -43,8 +43,8 @@ const deleteGame = (firebaseKey) => new Promise((resolve, reject) => {
     .catch(reject);
 });
 const updateGame = (payload) => new Promise((resolve, reject) => {
-  fetch(`${endpoint}/games/${payload.firebaseKey}.json`, {
-    method: 'PATCH',
+  fetch(`${endpoint}/api/games/${payload.id}.json`, {
+    method: 'PUT',
     headers: {
       'Content-Type': 'application/json',
     },
@@ -54,7 +54,18 @@ const updateGame = (payload) => new Promise((resolve, reject) => {
     .then((data) => resolve(data))
     .catch(reject);
 });
+const getSingleGame = (id) => new Promise((resolve, reject) => {
+  fetch(`${endpoint}/api/games/${id}`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => resolve(data))
+    .catch(reject);
+});
 
 export {
-  getGames, createGame, updateGame, deleteGame,
+  getGames, createGame, updateGame, deleteGame, getSingleGame,
 };

@@ -4,27 +4,32 @@ import { useRouter } from 'next/router';
 import { Card, Button } from 'react-bootstrap';
 import Link from 'next/link';
 import { deleteSingleTeam, getSingleTeam } from '../../api/teamData';
-// import PlayerCard from '../../components/PlayerCard';
+import { getPlayers, playerCaptain } from '../../api/playerData';
+import PlayerCard from '../../components/PlayerCard';
 
 function ViewTeam() {
   const [teamDetails, setTeamDetails] = useState({});
+  const [captainDetails, setCaptainDetails] = useState([]);
+  const [players, setPlayers] = useState([]);
   const router = useRouter();
-  const { firebaseKey } = router.query;
+  const { id } = router.query;
 
   const deleteThisTeam = () => {
     if (window.confirm(`Delete ${teamDetails.name}?`)) {
-      deleteSingleTeam(teamDetails.firebaseKey).then(() => router.push('/teams'));
+      deleteSingleTeam(teamDetails.id).then(() => router.push('/teams'));
     }
   };
 
   const getTDetails = () => {
-    getSingleTeam(firebaseKey).then(setTeamDetails);
+    getSingleTeam(id).then(setTeamDetails);
+    playerCaptain().then((captainArray) => captainArray.filter((captainItem) => captainItem.teamId === teamDetails.id)).then(setCaptainDetails);
+    getPlayers(id).then((array) => array.filter((item) => item.teamId === teamDetails.id)).then(setPlayers);
   };
-  // make call to API layer to get the data
+
   useEffect(() => {
     getTDetails();
-  }, [firebaseKey]);
-
+  }, [id]);
+  console.warn(captainDetails);
   return (
     <div>
       <div className="teamView">
@@ -32,11 +37,11 @@ function ViewTeam() {
           <Card.Body>
             <Card.Title className="teamTitle">{teamDetails.name}</Card.Title>
             <Card.Img variant="top" src={teamDetails.image} alt={teamDetails.name} style={{ width: '350px' }} />
-            <h4>Sponsor Company: {teamDetails.volunteerid}</h4>
-            <h4>Team Captain: {teamDetails.captainid}</h4>
+            <h4>Sponsor Company: {teamDetails.sponsor}</h4>
+            <h4>Team Captain: {captainDetails[0].firstName}</h4>
             <h4>Games Won: {teamDetails.gamesWon}</h4>
             <h4>Games Lost: {teamDetails.gamesLost}</h4>
-            <Link href={`/team/edit/${teamDetails.firebaseKey}`} passHref>
+            <Link href={`/team/edit/${teamDetails.id}`} passHref>
               <Button className="editBtn m-2" variant="info">EDIT</Button>
             </Link>
             <Button variant="warning" onClick={deleteThisTeam} className="deleteBtn m-2">
@@ -44,15 +49,11 @@ function ViewTeam() {
             </Button>
           </Card.Body>
         </Card>
+        <div className="viewPlayers">{players?.map((player) => (
+          <PlayerCard key={player.id} playerObj={player} onUpdate={getTDetails} />
+        ))}
+        </div>
       </div>
-      {/* <div className="viewPlayers">{teamDetails.players?.map((player) => (
-        <><PlayerCard key={player.firebaseKey} playerObj={player} onUpdate={getTDetails} />
-          <Link href={`/team/edit/${teamDetails.firebaseKey}`} passHref>
-            <Button className="editBtn m-2" variant="info">EDIT</Button>
-          </Link>
-        </>
-      ))}
-      </div> */}
     </div>
   );
 }
