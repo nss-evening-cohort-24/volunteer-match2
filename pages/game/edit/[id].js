@@ -13,7 +13,6 @@ export default function EditTeam() {
   useEffect(() => {
     getSingleGame(id).then(setEditItem);
   }, [id]);
-  console.warn(editItem);
   // pass object to form
   return (<GameForm gameObj={editItem} />);
 }
