@@ -10,8 +10,8 @@ import { getTeams } from '../../api/teamData';
 
 const initialState = {
   image: '',
-  first_name: '',
-  last_name: '',
+  firstName: '',
+  lastName: '',
   position: '',
   teamId: '',
   // captain: 'false',
@@ -25,7 +25,7 @@ function PlayerForm({ obj }) {
 
   useEffect(() => {
     getTeams().then(setTeams);
-    if (obj.firebaseKey) setFormInput(obj);
+    if (obj.id) setFormInput(obj);
   }, [obj, user]);
 
   const handleChange = (e) => {
@@ -38,12 +38,13 @@ function PlayerForm({ obj }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (obj.firebaseKey) {
+    if (obj.id) {
+      console.warn('update');
       updatePlayers(formInput).then(() => router.back());
     } else {
-      const payload = { ...formInput, uid: user.uid };
+      const payload = { ...formInput, volunteerId: user.uid };
       createPlayer(payload).then(({ name }) => {
-        const patchPayload = { firebaseKey: name };
+        const patchPayload = { id: name };
         updatePlayers(patchPayload).then(() => {
           router.back();
         });
@@ -53,15 +54,15 @@ function PlayerForm({ obj }) {
 
   return (
     <Form onSubmit={handleSubmit}>
-      <h1 className="text-white mt-5">{obj.firebaseKey ? 'Update' : 'Add'} Player</h1>
+      <h1 className="text-white mt-5">{obj.id ? 'Update' : 'Add'} Player</h1>
 
       {/* firstname  */}
       <FloatingLabel controlId="floatingInput1" label="First Name" className="mb-3">
         <Form.Control
           type="text"
           aria-label="First Name"
-          name="first_name"
-          value={formInput.first_name}
+          name="firstName"
+          value={formInput.firstName}
           onChange={handleChange}
           required
         />
@@ -72,8 +73,8 @@ function PlayerForm({ obj }) {
         <Form.Control
           type="text"
           aria-label="Last Name"
-          name="last_name"
-          value={formInput.last_name}
+          name="lastName"
+          value={formInput.lastName}
           onChange={handleChange}
           required
         />
@@ -138,12 +139,11 @@ function PlayerForm({ obj }) {
             captain: e.target.checked,
           }));
         }}
-        required
 
       />
 
       {/* SUBMIT BUTTON  */}
-      <Button type="submit">{obj.firebaseKey ? 'Update' : 'Add'} Player </Button>
+      <Button type="submit">{obj.id ? 'Update' : 'Add'} Player </Button>
     </Form>
   );
 }
@@ -151,11 +151,11 @@ function PlayerForm({ obj }) {
 PlayerForm.propTypes = {
   obj: PropTypes.shape({
     image: PropTypes.string,
-    first_name: PropTypes.string,
-    last_name: PropTypes.string,
+    firstName: PropTypes.string,
+    lastName: PropTypes.string,
     position: PropTypes.string,
     teamId: PropTypes.string,
-    firebaseKey: PropTypes.string,
+    id: PropTypes.string,
   }),
 };
 

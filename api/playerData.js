@@ -32,19 +32,19 @@ const getPlayersByTeam = (teamId) => new Promise((resolve, reject) => {
     .catch(reject);
 });
 const createPlayer = (payload) => new Promise((resolve, reject) => {
-  fetch(`${endpoint}/players.json`, {
+  fetch(`${endpoint}/api/player`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
     },
     body: JSON.stringify(payload),
   })
-    .then((response) => response.json())
+    // .then((response) => response.json())
     .then((data) => resolve(data))
     .catch(reject);
 });
-const getSinglePlayer = (firebaseKey) => new Promise((resolve, reject) => {
-  fetch(`${endpoint}/players/${firebaseKey}.json`, {
+const getSinglePlayer = (id) => new Promise((resolve, reject) => {
+  fetch(`${endpoint}/api/players/${id}`, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
@@ -54,19 +54,19 @@ const getSinglePlayer = (firebaseKey) => new Promise((resolve, reject) => {
     .then((data) => resolve(data))
     .catch(reject);
 });
-const deletePlayer = (firebaseKey) => new Promise((resolve, reject) => {
-  fetch(`${endpoint}/players/${firebaseKey}.json`, {
+const deletePlayer = (id) => new Promise((resolve, reject) => {
+  fetch(`${endpoint}/api/players/${id}`, {
     method: 'DELETE',
     headers: {
       'Content-Type': 'application/json',
     },
   })
-    .then((response) => response.json())
+    // .then((response) => response.json())
     .then((data) => resolve(data))
     .catch(reject);
 });
 const updatePlayers = (payload) => new Promise((resolve, reject) => {
-  fetch(`${endpoint}/players/${payload.firebaseKey}.json`, {
+  fetch(`${endpoint}/api/players/${payload.id}`, {
     method: 'PUT',
     headers: {
       'Content-Type': 'application/json',
