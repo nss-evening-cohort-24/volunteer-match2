@@ -42,12 +42,12 @@ function PlayerCard({ playerObj, onUpdate }) {
 PlayerCard.propTypes = {
   playerObj: PropTypes.shape({
     image: PropTypes.string,
-    teamId: PropTypes.string,
+    teamId: PropTypes.number,
     firstName: PropTypes.string,
     lastName: PropTypes.string,
     position: PropTypes.string,
     isCaptain: PropTypes.bool,
-    id: PropTypes.string,
+    id: PropTypes.number,
   }).isRequired,
   onUpdate: PropTypes.func.isRequired,
 };
