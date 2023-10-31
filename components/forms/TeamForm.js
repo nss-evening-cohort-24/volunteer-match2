@@ -9,22 +9,22 @@ import { getPlayers } from '../../api/playerData';
 const intialState = {
   image: '',
   name: '',
-  volunteerid: '',
-  captainid: '',
+  sponsor: '',
 };
 
 export default function TeamForm({ obj }) {
   const { user } = useAuth();
-  const [formInput, setFormInput] = useState({ ...intialState, uid: user.uid });
+  const [formInput, setFormInput] = useState({ ...intialState, volunteerId: user.uid });
   const [players, setPlayers] = useState([]);
   const router = useRouter();
 
   useEffect(() => {
     getPlayers(user.uid).then(setPlayers);
 
-    if (obj.firebaseKey) setFormInput(obj);
+    if (obj.id) setFormInput(obj);
   }, [obj, user]);
   console.warn(players);
+  console.warn(formInput);
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormInput((prevState) => ({
@@ -36,14 +36,11 @@ export default function TeamForm({ obj }) {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (obj.firebaseKey) {
-      updateTeam(formInput).then(() => router.push(`/team/${obj.firebaseKey}`));
+    if (obj.id) {
+      updateTeam(formInput).then(() => router.push(`/team/${obj.id}`));
     } else {
-      const payload = { ...formInput, uid: user.uid };
-      createTeams(payload).then(({ name }) => {
-        const patchPayload = { firebaseKey: name };
-        updateTeam(patchPayload).then(() => router.push('/teams'));
-      });
+      const payload = formInput;
+      createTeams(payload).then(() => router.push('/teams'));
     }
   };
 
@@ -77,13 +74,13 @@ export default function TeamForm({ obj }) {
           <Form.Control
             type="text"
             placeholder="Enter Company Name"
-            name="volunteerid"
-            value={formInput.volunteerid}
+            name="sponsor"
+            value={formInput.sponsor}
             onChange={handleChange}
             required
           />
         </Form.Group>
-        <Form.Group className="mb-3">
+        {/* <Form.Group className="mb-3">
           <Form.Label>Captain</Form.Label>
           <Form.Select
             type="text"
@@ -104,7 +101,7 @@ export default function TeamForm({ obj }) {
             ))
           }
           </Form.Select>
-        </Form.Group>
+        </Form.Group> */}
         <Button variant="outline-secondary" type="submit">
           Submit
         </Button>
@@ -117,9 +114,9 @@ TeamForm.propTypes = {
   obj: PropTypes.shape({
     image: PropTypes.string,
     name: PropTypes.string,
-    volunteerid: PropTypes.string,
-    captainid: PropTypes.string,
-    firebaseKey: PropTypes.string,
+    volunteerId: PropTypes.string,
+    captainId: PropTypes.number,
+    id: PropTypes.number,
   }),
 };
 
