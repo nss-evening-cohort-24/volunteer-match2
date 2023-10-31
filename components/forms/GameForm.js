@@ -36,31 +36,19 @@ export default function GameForm({ gameObj }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    let payload = {};
     if (gameObj.id) {
-      updateGame(formInput).then(() => router.push(`/game/${gameObj.id}`));
+      updateGame(formInput).then(() => router.push('/games'));
     } else {
-      if (formInput.winningTeam === 'teamOne') {
-        const num = parseInt(formInput.teamOneId, 32);
-        payload = {
-          name: formInput.name,
-          createdAt: formInput.createdAt,
-          winningTeamId: num,
-        };
-      } if (formInput.winningTeam === 'teamTwo') {
-        const numTwo = parseInt(formInput.teamTwoId, 32);
-        payload = {
-          name: formInput.name,
-          createdAt: formInput.createdAt,
-          winningTeamId: numTwo,
-        };
-      }
-
+      const payload = {
+        name: formInput.name,
+        createdAt: formInput.createdAt,
+        winningTeamId: '',
+        teams: [formInput.teamOneId, formInput.teamTwoId],
+      };
       createGame(payload).then((game) => {
-        console.warn(game);
         createTeamGames(game.id, formInput.teamOneId);
-        createTeamGames(game.id, formInput.teamTwoId).then(() => router.push('/games'));
-      });
+        createTeamGames(game.id, formInput.teamTwoId);
+      }).then(() => router.push('/games'));
     }
   };
 

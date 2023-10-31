@@ -20,7 +20,7 @@ function ShowGames() {
     <div className="text-center my-4">
       <div className="d-flex flex-wrap">
         {gameDetails.map((game) => (
-          <GameCard key={game.firebaseKey} gameObj={game} onUpdate={getAllGames} />
+          <GameCard key={game.id} gameObj={game} onUpdate={getAllGames} />
         ))}
       </div>
     </div>

@@ -4,7 +4,7 @@ import { Button, Form } from 'react-bootstrap';
 import { useRouter } from 'next/router';
 import { useAuth } from '../../utils/context/authContext';
 import { createTeams, updateTeam } from '../../api/teamData';
-import { getPlayers } from '../../api/playerData';
+// import { getPlayers } from '../../api/playerData';
 
 const intialState = {
   image: '',
@@ -15,16 +15,14 @@ const intialState = {
 export default function TeamForm({ obj }) {
   const { user } = useAuth();
   const [formInput, setFormInput] = useState({ ...intialState, volunteerId: user.uid });
-  const [players, setPlayers] = useState([]);
+  // const [players, setPlayers] = useState([]);
   const router = useRouter();
 
   useEffect(() => {
-    getPlayers(user.uid).then(setPlayers);
+    // getPlayers(user.uid).then(setPlayers);
 
     if (obj.id) setFormInput(obj);
   }, [obj, user]);
-  console.warn(players);
-  console.warn(formInput);
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormInput((prevState) => ({
