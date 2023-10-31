@@ -12,7 +12,7 @@ function Home() {
         <Link passHref href="/teams">
           <Button variant="primary" className="viewBtn indexBtn m-2">View Teams</Button>
         </Link>
-        <Link passHref href="/">
+        <Link passHref href="/players">
           <Button variant="primary" className="viewBtn indexBtn m-2">View Players</Button>
         </Link>
         <Link passHref href="/game/new">

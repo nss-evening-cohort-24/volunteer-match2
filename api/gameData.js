@@ -26,8 +26,7 @@ const createGame = (payload) => new Promise((resolve, reject) => {
       'Content-Type': 'application/json',
     },
     body: JSON.stringify(payload),
-  })
-    .then((response) => response.json())
+  }).then((response) => response.json())
     .then((data) => resolve(data))
     .catch(reject);
 });
@@ -38,19 +37,19 @@ const deleteGame = (id) => new Promise((resolve, reject) => {
       'Content-Type': 'application/json',
     },
   })
-    .then((response) => response.json())
+    // .then((response) => response.json())
     .then((data) => resolve(data))
     .catch(reject);
 });
 const updateGame = (payload) => new Promise((resolve, reject) => {
-  fetch(`${endpoint}/api/games/${payload.id}.json`, {
+  fetch(`${endpoint}/api/games/${payload.id}`, {
     method: 'PUT',
     headers: {
       'Content-Type': 'application/json',
     },
     body: JSON.stringify(payload),
   })
-    .then((response) => response.json())
+    // .then((response) => response.json())
     .then((data) => resolve(data))
     .catch(reject);
 });

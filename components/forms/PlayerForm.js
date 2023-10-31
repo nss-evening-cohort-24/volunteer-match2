@@ -39,7 +39,6 @@ function PlayerForm({ obj }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (obj.id) {
-      console.warn('update');
       updatePlayers(formInput).then(() => router.back());
     } else {
       const payload = { ...formInput, volunteerId: user.uid };
