@@ -20,7 +20,7 @@ function ShowPlayers() {
     <div className="text-center my-4">
       <div className="d-flex flex-wrap">
         {playerDetails.map((player) => (
-          <PlayerCard key={player.firebaseKey} playerObj={player} teamName={player.teamObject?.name} onUpdate={getAllPlayers} />
+          <PlayerCard key={player.id} playerObj={player} teamName={player.teamObject?.name} onUpdate={getAllPlayers} />
         ))}
       </div>
     </div>
