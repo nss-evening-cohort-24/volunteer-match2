@@ -34,18 +34,18 @@ function ViewPlayer() {
 
   useEffect(() => {
     getSingleTeam(playerDetails.teamId).then(setTeam);
-  }, []);
+  }, [id]);
 
   return (
     <div>
       <div className="teamView">
         <Card style={{ width: '400px', margin: '10px' }}>
           <Card.Body>
-            <Card.Title className="teamTitle">{playerDetails.name}{playerDetails.isCaptain && <span style={{ color: '#fafafa' }}>⚽</span>}</Card.Title>
+            <Card.Title className="teamTitle">{playerDetails.firstName} {playerDetails.lastName}{playerDetails.isCaptain && <span style={{ color: '#fafafa' }}>⚽</span>}</Card.Title>
             <Card.Img variant="top" src={playerDetails.image} alt={playerDetails.name} style={{ width: '350px' }} />
             <h5>{playerDetails.first_name} {playerDetails.last_name}</h5>
             <h6>Position: {playerDetails.position}</h6>
-            <Card.Text>{team.name}</Card.Text>
+            <Card.Text>Team: {team.name}</Card.Text>
             <Link href={`/player/edit/${playerDetails.id}`} passHref>
               <Button className="editBtn m-2" variant="dark">EDIT</Button>
             </Link>

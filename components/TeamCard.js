@@ -19,7 +19,7 @@ function TeamCard({ teamObj, onUpdate }) {
 
   useEffect(() => {
     captain();
-  });
+  }, []);
 
   return (
     <Card style={{ width: '18rem', margin: '10px' }}>
