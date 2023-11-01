@@ -1,7 +1,6 @@
 import PropTypes from 'prop-types';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
-import Link from 'next/link';
 import { deleteGame } from '../api/gameData';
 
 function GameCard({ gameObj, onUpdate }) {
@@ -20,9 +19,6 @@ function GameCard({ gameObj, onUpdate }) {
         <Card.Text>Team 1: {gameObj.teams[0]?.name}</Card.Text>
         <Card.Text>Team 2: {gameObj.teams[1]?.name}</Card.Text>
 
-        <Link href={`/game/edit/${gameObj.id}`} passHref>
-          <Button variant="info">ADD WINNER</Button>
-        </Link>
         <Button variant="danger" onClick={deleteThisGame} className="m-2">
           DELETE
         </Button>
@@ -39,7 +35,6 @@ GameCard.propTypes = {
     teamId: PropTypes.string,
     teams: PropTypes.arrayOf(PropTypes.string),
     id: PropTypes.string,
-    winningTeamId: PropTypes.number,
   }).isRequired,
   onUpdate: PropTypes.func.isRequired,
 };

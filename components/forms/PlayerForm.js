@@ -39,13 +39,13 @@ function PlayerForm({ obj }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (obj.id) {
-      updatePlayers(formInput).then(() => router.back());
+      updatePlayers(formInput).then(() => router.push(`/player/${obj.id}`));
     } else {
       const payload = { ...formInput, volunteerId: user.uid };
       createPlayer(payload).then(({ name }) => {
         const patchPayload = { id: name };
         updatePlayers(patchPayload).then(() => {
-          router.back();
+          router.push('/players');
         });
       });
     }

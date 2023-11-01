@@ -12,7 +12,6 @@ const initialState = {
   createdAt: '',
   teamOneId: '',
   teamTwoId: '',
-  winningTeam: '',
 };
 export default function GameForm({ gameObj }) {
   const { user } = useAuth();
@@ -42,7 +41,6 @@ export default function GameForm({ gameObj }) {
       const payload = {
         name: formInput.name,
         createdAt: formInput.createdAt,
-        winningTeamId: '',
         teams: [formInput.teamOneId, formInput.teamTwoId],
       };
       createGame(payload).then((game) => {
@@ -109,19 +107,7 @@ export default function GameForm({ gameObj }) {
           }
           </Form.Select>
         </Form.Group>
-        <Form.Select
-          type="text"
-          placeholder="Enter Team Name"
-          name="winningTeam"
-          value={formInput.winningTeam}
-          onChange={handleChange}
-          required
-        >
-          <option value="">Winning Team</option>
-          <option>teamOne</option>
-          <option>teamTwo</option>
 
-        </Form.Select>
         <Form.Group className="mb-3">
           <Form.Label>Game Name</Form.Label>
           <Form.Control
@@ -146,7 +132,7 @@ GameForm.propTypes = {
     name: PropTypes.string,
     teams: PropTypes.arrayOf(PropTypes.number),
     id: PropTypes.string,
-    // createdAt: PropTypes.instanceOf(Date),
+    createdAt: PropTypes.instanceOf(Date),
     // winningTeamId: PropTypes.string,
   }),
 };
