@@ -24,7 +24,7 @@ function PlayerCard({ playerObj, onUpdate }) {
       <Card.Body>
         <Card.Title>{playerObj.firstName} {playerObj.lastName} {playerObj.isCaptain && <span style={{ color: '#fafafa' }}>⚽</span>}</Card.Title>
         <h6>Position: {playerObj.position}</h6>
-        <Card.Text>{team.name}</Card.Text>
+        <Card.Text>Team: {team.name}</Card.Text>
         <Link href={`/player/${playerObj.id}`} passHref>
           <Button variant="dark" className="m-2">VIEW</Button>
         </Link>

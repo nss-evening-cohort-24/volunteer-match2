@@ -34,7 +34,7 @@ function ViewPlayer() {
 
   useEffect(() => {
     getSingleTeam(playerDetails.teamId).then(setTeam);
-  }, [id]);
+  }, [id, playerDetails]);
 
   return (
     <div>

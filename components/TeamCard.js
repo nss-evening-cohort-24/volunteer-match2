@@ -27,7 +27,7 @@ function TeamCard({ teamObj, onUpdate }) {
       <Card.Body>
         <Card.Title className="teamTitle">{teamObj.name}</Card.Title>
         <h4>Sponsor Company: {teamObj.sponsor}</h4>
-        <h4><span style={{ color: '#fafafa' }}>⚽</span>{players[0]?.firstName} {players[0]?.lastName}
+        <h4>Team Captain: <span style={{ color: '#fafafa' }}>⚽</span>{players[0]?.firstName} {players[0]?.lastName}
         </h4>
         <div className="wrapper">
           <Link href={`/team/${teamObj.id}`} passHref>
