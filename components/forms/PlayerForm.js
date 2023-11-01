@@ -14,7 +14,7 @@ const initialState = {
   lastName: '',
   position: '',
   teamId: '',
-  // captain: 'false',
+  isCaptain: false,
 };
 
 function PlayerForm({ obj }) {
@@ -127,15 +127,15 @@ function PlayerForm({ obj }) {
       <Form.Check
         className="text-white mb-3"
         type="switch"
-        id="captain"
-        name="captain"
+        id="isCaptain"
+        name="isCaptain"
         label="Team Captain"
         aria-label="Team Captain"
-        checked={formInput.captain}
+        checked={formInput.isCaptain}
         onChange={(e) => {
           setFormInput((prevState) => ({
             ...prevState,
-            captain: e.target.checked,
+            isCaptain: e.target.checked,
           }));
         }}
 
