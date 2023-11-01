@@ -1,5 +1,6 @@
 import { clientCredentials } from '../utils/client';
 
+// const endpoint = 'https://localhost:7047';
 const endpoint = clientCredentials.databaseURL;
 
 const getPlayers = () => new Promise((resolve, reject) => {
