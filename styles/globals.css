@@ -19,10 +19,11 @@ a {
 
 body {
   background-color: black;
+  color: whitesmoke;
 }
 
 .card {
-  background-color: gray;
+  background-color: rgb(58, 62, 88);
   color: white;
 }
 .buttonWrapper {
@@ -37,6 +38,11 @@ align-items: center;
   height: 2.5rem;
   border-radius: 2px;
 }
+.soccerImg {
+  background-image: url('https://media.istockphoto.com/id/1199894704/photo/african-american-young-boy-playing-soccer-in-a-stadium-pitch-child-running-with-soccer-ball.jpg?s=612x612&w=0&k=20&c=mRKKlAIo7CoWLKcxQGbSaKYO6_VdWxa1NpAtqb4oBT4=');
+  object-fit: cover;
+  max-width: 400px;
+}
 .welcomeTitle {
   margin-top: 120px;
 }
@@ -44,7 +50,52 @@ align-items: center;
 /* Team cards */
 .teamTitle {
   font-size: 40px;
+  font-family: 'Courier New', Courier, monospace;
+  box-shadow: 2px 2px 2px rgb(206, 206, 69);
 }
 .teamImg {
   object-fit: cover;
+}
+.viewBtn {
+background-color: rgb(30, 52, 128);
+}
+.sponsCo {
+font-style: italic;
+color: rgb(8, 8, 85);
+line-height: 2;
+text-shadow: 0.5px 0.5px 0 rgb(18, 56, 139);
+}
+.captainNames {
+  font-family:'Times New Roman', Times, serif;
+}
+/* Player Cards */
+.playerImg {
+  object-fit: cover;
+}
+
+/* Sign In Page */
+.signIn {
+  background-image: url('https://media.istockphoto.com/id/517518191/photo/soccer-ball-and-goal.webp?b=1&s=170667a&w=0&k=20&c=nEYvJeAs4yyx8yzhi9bKFJ32OU_np9nln7wqSUSy6fc=');
+  background-repeat: no-repeat;
+  object-fit: cover;
+}
+.titleSignIn {
+  font-size: 60px;
+  color: whitesmoke;
+  margin-top: 60px;
+  margin-bottom: 30px;
+}
+/* teams page */
+.teamPage {
+  font-size: 60px;
+  color: whitesmoke;
+  margin-top: 40px;
+}
+
+/* Team form */
+.teamForm {
+  background-color: rgb(70, 172, 175);
+}
+.gamePage {
+  margin-bottom: 50px;
 }

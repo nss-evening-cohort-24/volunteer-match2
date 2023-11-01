@@ -20,11 +20,11 @@ function PlayerCard({ playerObj, onUpdate }) {
 
   return (
     <Card style={{ width: '18rem', margin: '10px' }}>
-      <Card.Img variant="top" src={playerObj.image} alt={playerObj.position} style={{ height: '400px' }} />
+      <Card.Img className="playerImg" variant="top" src={playerObj.image} alt={playerObj.position} style={{ height: '400px' }} />
       <Card.Body>
         <Card.Title>{playerObj.firstName} {playerObj.lastName} {playerObj.isCaptain && <span style={{ color: '#fafafa' }}>⚽</span>}</Card.Title>
         <h6>Position: {playerObj.position}</h6>
-        <Card.Text>{team.name}</Card.Text>
+        <Card.Text>Team: {team.name}</Card.Text>
         <Link href={`/player/${playerObj.id}`} passHref>
           <Button variant="dark" className="m-2">VIEW</Button>
         </Link>

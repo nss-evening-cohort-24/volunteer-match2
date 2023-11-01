@@ -32,7 +32,7 @@ export default function NavBarAuth() {
             <Link passHref href="/games">
               <Nav.Link>Games</Nav.Link>
             </Link>
-            <Button variant="danger" onClick={signOut}>Sign Out</Button>
+            <Button variant="outline-warning" onClick={signOut}>Sign Out</Button>
           </Nav>
         </Navbar.Collapse>
       </Container>

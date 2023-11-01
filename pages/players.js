@@ -18,6 +18,7 @@ function ShowPlayers() {
 
   return (
     <div className="text-center my-4">
+      <h1>PLAYERS</h1>
       <div className="d-flex flex-wrap">
         {playerDetails.map((player) => (
           <PlayerCard key={player.id} playerObj={player} teamName={player.teamObject?.name} onUpdate={getAllPlayers} />
