@@ -1,5 +1,6 @@
 import { Button } from 'react-bootstrap';
 import Link from 'next/link';
+import React from 'react';
 import { useAuth } from '../utils/context/authContext';
 
 function Home() {

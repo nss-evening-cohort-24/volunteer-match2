@@ -19,7 +19,7 @@ function GameCard({ gameObj, onUpdate }) {
         <Card.Text>Team 1: {gameObj.teams[0]?.name}</Card.Text>
         <Card.Text>Team 2: {gameObj.teams[1]?.name}</Card.Text>
 
-        <Button variant="danger" onClick={deleteThisGame} className="m-2">
+        <Button variant="outline-warning" onClick={deleteThisGame} className="m-2">
           DELETE
         </Button>
       </Card.Body>

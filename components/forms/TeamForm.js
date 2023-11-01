@@ -44,7 +44,8 @@ export default function TeamForm({ obj }) {
 
   return (
     <>
-      <Form onSubmit={handleSubmit}>
+      <Form onSubmit={handleSubmit} className="teamForm">
+        <h1 className="text-white mt-5">{obj.id ? 'Update' : 'Add'} Team</h1>
         <Form.Group className="mb-3">
           <Form.Label>Image</Form.Label>
           <Form.Control

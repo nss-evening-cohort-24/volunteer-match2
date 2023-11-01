@@ -15,9 +15,10 @@ function ShowGames() {
   useEffect(() => {
     getAllGames();
   }, []);
-  console.warn(gameDetails);
+
   return (
     <div className="text-center my-4">
+      <h1 className="gamePage">Scheduled Games</h1>
       <div className="d-flex flex-wrap">
         {gameDetails.map((game) => (
           <GameCard key={game.id} gameObj={game} onUpdate={getAllGames} />

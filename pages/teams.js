@@ -16,10 +16,10 @@ function Teams() {
   }, []);
 
   return (
-    <div className="text-center my-4">
+    <div className="text-center my-4 teamPage">
       <h1>TEAMS</h1>
       <Link href="/team/new" passHref>
-        <Button className="createBtn">Add A Team</Button>
+        <Button size="sm" variant="outline-info" className="createBtn">New Team +</Button>
       </Link>
       <div className="d-flex flex-wrap">
         {teams.map((team) => (

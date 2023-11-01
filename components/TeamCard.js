@@ -26,14 +26,14 @@ function TeamCard({ teamObj, onUpdate }) {
       <Card.Img className="teamImg" variant="top" src={teamObj.image} alt={teamObj.name} style={{ height: '350px' }} />
       <Card.Body>
         <Card.Title className="teamTitle">{teamObj.name}</Card.Title>
-        <h4>Sponsor Company: {teamObj.sponsor}</h4>
-        <h4><span style={{ color: '#fafafa' }}>⚽</span>{players[0]?.firstName} {players[0]?.lastName}
+        <h4>Sponsor Company:<br /><span className="sponsCo">{teamObj.sponsor}</span></h4>
+        <h4 className="captainNames"><span style={{ color: '#fafafa' }}>⚽</span>{players[0]?.firstName} {players[0]?.lastName}
         </h4>
         <div className="wrapper">
           <Link href={`/team/${teamObj.id}`} passHref>
             <Button variant="primary" className="viewBtn m-2">VIEW</Button>
           </Link>
-          <Button variant="warning" onClick={deleteThisTeam} className="deleteBtn m-2">
+          <Button variant="outline-warning" size="sm" onClick={deleteThisTeam} className="deleteBtn m-2">
             DELETE
           </Button>
         </div>
