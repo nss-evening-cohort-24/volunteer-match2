@@ -33,7 +33,7 @@ function TeamCard({ teamObj, onUpdate }) {
           <Link href={`/team/${teamObj.id}`} passHref>
             <Button variant="primary" className="viewBtn m-2">VIEW</Button>
           </Link>
-          <Button variant="warning" onClick={deleteThisTeam} className="deleteBtn m-2">
+          <Button variant="outline-warning" size="sm" onClick={deleteThisTeam} className="deleteBtn m-2">
             DELETE
           </Button>
         </div>
