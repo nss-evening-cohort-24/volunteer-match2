@@ -1,12 +1,15 @@
 import React, { useEffect, useState } from 'react';
+import { useAuth } from '../utils/context/authContext';
 import { getPlayers } from '../api/playerData';
 import PlayerCard from '../components/PlayerCard';
 
 function ShowPlayers() {
   const [playerDetails, setPlayerDetails] = useState([]);
 
+  const { user } = useAuth();
+
   const getAllPlayers = () => {
-    getPlayers().then(setPlayerDetails);
+    getPlayers(user.uid).then(setPlayerDetails);
   };
 
   useEffect(() => {
@@ -17,7 +20,7 @@ function ShowPlayers() {
     <div className="text-center my-4">
       <div className="d-flex flex-wrap">
         {playerDetails.map((player) => (
-          <PlayerCard key={player.id} playerObj={player} onUpdate={getAllPlayers} />
+          <PlayerCard key={player.id} playerObj={player} teamName={player.teamObject?.name} onUpdate={getAllPlayers} />
         ))}
       </div>
     </div>
