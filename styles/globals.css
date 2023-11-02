@@ -53,6 +53,11 @@ align-items: center;
   font-family: 'Courier New', Courier, monospace;
   box-shadow: 2px 2px 2px rgb(206, 206, 69);
 }
+.playerTitle {
+  font-size: 40px;
+  font-family: 'Courier New', Courier, monospace;
+  box-shadow: 2px 2px 2px rgb(206, 206, 69);
+}
 .teamImg {
   object-fit: cover;
 }
