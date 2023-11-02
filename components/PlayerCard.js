@@ -22,16 +22,16 @@ function PlayerCard({ playerObj, onUpdate }) {
     <Card style={{ width: '18rem', margin: '10px' }}>
       <Card.Img className="playerImg" variant="top" src={playerObj.image} alt={playerObj.position} style={{ height: '400px' }} />
       <Card.Body>
-        <Card.Title>{playerObj.firstName} {playerObj.lastName} {playerObj.isCaptain && <span style={{ color: '#fafafa' }}>⚽</span>}</Card.Title>
+        <Card.Title className="teamTitle">{playerObj.firstName} {playerObj.lastName} {playerObj.isCaptain && <span style={{ color: '#fafafa' }}>⚽</span>}</Card.Title>
         <h6>Position: {playerObj.position}</h6>
         <Card.Text>Team: {team.name}</Card.Text>
         <Link href={`/player/${playerObj.id}`} passHref>
-          <Button variant="dark" className="m-2">VIEW</Button>
+          <Button variant="primary" className="viewBtn m-2">VIEW</Button>
         </Link>
         <Link href={`/player/edit/${playerObj.id}`} passHref>
-          <Button variant="dark">EDIT</Button>
+          <Button className="editBtn m-2" variant="outline-info">EDIT</Button>
         </Link>
-        <Button variant="danger" onClick={deleteThisPlayer} className="m-2">
+        <Button variant="outline-warning" onClick={deleteThisPlayer} className="deleteBtn m-2">
           DELETE
         </Button>
       </Card.Body>

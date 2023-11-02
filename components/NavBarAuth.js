@@ -26,12 +26,11 @@ export default function NavBarAuth() {
             <Link passHref href="/players">
               <Nav.Link>Players</Nav.Link>
             </Link>
-            <Link passHref href="/player/new">
-              <Nav.Link>New Players</Nav.Link>
-            </Link>
             <Link passHref href="/games">
               <Nav.Link>Games</Nav.Link>
             </Link>
+          </Nav>
+          <Nav>
             <Button variant="outline-warning" onClick={signOut}>Sign Out</Button>
           </Nav>
         </Navbar.Collapse>
