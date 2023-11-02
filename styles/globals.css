@@ -33,20 +33,51 @@ flex-direction: column;
 justify-content: center;
 align-items: center;
 }
+
+/* Index Page  */
+
 .indexBtn {
-  width: 9rem;
-  height: 2.5rem;
+  font-size: 20px;
+  width: 10rem;
+  height: 3rem;
   border-radius: 2px;
+  color: rgb(103, 197, 131);
+  border: 1px solid rgb(23, 102, 47);
+  background-color: rgb(14, 112, 168);
 }
-.soccerImg {
-  background-image: url('https://media.istockphoto.com/id/1199894704/photo/african-american-young-boy-playing-soccer-in-a-stadium-pitch-child-running-with-soccer-ball.jpg?s=612x612&w=0&k=20&c=mRKKlAIo7CoWLKcxQGbSaKYO6_VdWxa1NpAtqb4oBT4=');
+.indexBtn:hover {
+background-color: rgb(77, 186, 219);
+}
+.gameBtn {
+  font-size: 20px;
+  width: 11rem;
+  height: 3rem;
+  border-radius: 2px;
+  color: rgb(37, 17, 128);
+  border: 1px solid rgb(37, 17, 128);
+  background-color: rgb(28, 133, 28);
+}
+.logoPic {
+  background-image: url("https://media.istockphoto.com/id/1199894704/photo/african-american-young-boy-playing-soccer-in-a-stadium-pitch-child-running-with-soccer-ball.jpg?s=612x612&w=0&k=20&c=mRKKlAIo7CoWLKcxQGbSaKYO6_VdWxa1NpAtqb4oBT4=");
   object-fit: cover;
-  max-width: 400px;
+  background-repeat: no-repeat;
 }
 .welcomeTitle {
-  margin-top: 120px;
+  margin-top: 60px;
+  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  color: rgb(181, 218, 172);
 }
-
+.logo {
+  font-size: 60px;
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-weight: 800;
+  color: rgb(7, 109, 204);
+}
+.kids {
+  color: rgb(65, 182, 65);
+  font-family:'Courier New', Courier, monospace;
+  font-size: 75px;
+}
 /* Team cards */
 .teamTitle {
   font-size: 40px;
@@ -54,7 +85,7 @@ align-items: center;
   box-shadow: 2px 2px 2px rgb(206, 206, 69);
 }
 .playerTitle {
-  font-size: 40px;
+  font-size: 20px;
   font-family: 'Courier New', Courier, monospace;
   box-shadow: 2px 2px 2px rgb(206, 206, 69);
 }
@@ -77,6 +108,9 @@ text-shadow: 0.5px 0.5px 0 rgb(18, 56, 139);
 .playerImg {
   object-fit: cover;
 }
+.playerTitle {
+  font-size: 25px;
+}
 
 /* Sign In Page */
 .signIn {
@@ -91,16 +125,54 @@ text-shadow: 0.5px 0.5px 0 rgb(18, 56, 139);
   margin-bottom: 30px;
 }
 /* teams page */
+.header {
+  font-size: 50px;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: 700;
+  letter-spacing: .2rem;
+  color: rgb(81, 156, 206);
+}
 .teamPage {
   font-size: 60px;
   color: whitesmoke;
   margin-top: 40px;
 }
 
-/* Team form */
-.teamForm {
-  background-color: rgb(70, 172, 175);
-}
+/* Game Page  */
+
 .gamePage {
   margin-bottom: 50px;
+  color: rgb(57, 138, 57);
+  font-size: 50px;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: 700;
+}
+.teamLine {
+color: rgb(204, 204, 20);
+}
+
+.gameTitle {
+  font-size: 30px;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  color: rgb(180, 180, 105);
+}
+ /* View Team Page */
+ .teamView {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 50px;
+ }
+ .viewPlayers {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+ }
+.viewTeamWrap {
+  display: flex;
+  flex-direction: row;
+}
+.teamCard {
+  margin-bottom: 40px;
 }

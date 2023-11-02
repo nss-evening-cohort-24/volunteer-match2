@@ -119,8 +119,8 @@ export default function GameForm({ gameObj }) {
             required
           />
         </Form.Group>
-        <Button variant="primary" type="submit">
-          Schedule Game
+        <Button variant="primary" type="submit">{gameObj.id ? 'Update ' : 'Add '}
+          Game
         </Button>
       </Form>
     </>
@@ -133,7 +133,6 @@ GameForm.propTypes = {
     teams: PropTypes.arrayOf(PropTypes.number),
     id: PropTypes.string,
     createdAt: PropTypes.instanceOf(Date),
-    // winningTeamId: PropTypes.string,
   }),
 };
 
