@@ -20,12 +20,22 @@ function ViewTeam() {
     }
   };
 
-  const getTDetails = () => {
-    getSingleTeam(id).then(setTeamDetails);
-    playerCaptain().then((captainArray) => captainArray.filter((captainItem) => captainItem.teamId === teamDetails.id)).then(setCaptainDetails);
-    getPlayers().then((array) => array.filter((item) => item.teamId === teamDetails.id)).then(setPlayers);
-  };
+  const getTDetails = async () => {
+    try {
+      const teamData = await getSingleTeam(id);
+      const captainArray = await playerCaptain();
+      const filteredCaptainDetails = captainArray.filter((captainItem) => captainItem.teamId === teamData.id);
+      const playerArray = await getPlayers();
+      const filteredPlayers = playerArray.filter((item) => item.teamId === teamData.id);
 
+      setTeamDetails(teamData);
+      setCaptainDetails(filteredCaptainDetails);
+      setPlayers(filteredPlayers);
+    } catch (error) {
+      // Handle errors here
+      console.error(error);
+    }
+  };
   useEffect(() => {
     getTDetails();
   }, [id]);
@@ -33,22 +43,24 @@ function ViewTeam() {
   return (
     <div>
       <div className="teamView">
-        <Card style={{ width: '400px', margin: '10px' }}>
-          <Card.Body>
-            <Card.Title className="teamTitle">{teamDetails.name}</Card.Title>
-            <Card.Img variant="top" src={teamDetails.image} alt={teamDetails.name} style={{ width: '350px' }} />
-            <h4>Sponsor Company: {teamDetails.sponsor}</h4>
-            <h4>Team Captain: {captainDetails[0]?.firstName}</h4>
-            <h4>Games Won: {teamDetails.gamesWon}</h4>
-            <h4>Games Lost: {teamDetails.gamesLost}</h4>
-            <Link href={`/team/edit/${teamDetails.id}`} passHref>
-              <Button className="editBtn m-2" variant="info">EDIT</Button>
-            </Link>
-            <Button variant="warning" onClick={deleteThisTeam} className="deleteBtn m-2">
-              DELETE
-            </Button>
-          </Card.Body>
-        </Card>
+        <div className="teamCard">
+          <Card style={{ width: '400px', margin: '10px' }}>
+            <Card.Body>
+              <Card.Title className="teamTitle">{teamDetails.name}</Card.Title>
+              <Card.Img variant="top" src={teamDetails.image} alt={teamDetails.name} style={{ width: '350px' }} />
+              <h4>Sponsor Company: {teamDetails.sponsor}</h4>
+              <h4>Team Captain: {captainDetails[0]?.firstName} {captainDetails[0]?.lastName}<span style={{ color: '#fafafa' }}>⚽</span></h4>
+              <h4>Games Won: {teamDetails.gamesWon}</h4>
+              <h4>Games Lost: {teamDetails.gamesLost}</h4>
+              <Link href={`/team/edit/${teamDetails.id}`} passHref>
+                <Button className="editBtn m-2" variant="info">EDIT</Button>
+              </Link>
+              <Button variant="warning" onClick={deleteThisTeam} className="deleteBtn m-2">
+                DELETE
+              </Button>
+            </Card.Body>
+          </Card>
+        </div>
         <div className="viewPlayers">{players?.map((player) => (
           <PlayerCard key={player.id} playerObj={player} onUpdate={getTDetails} />
         ))}

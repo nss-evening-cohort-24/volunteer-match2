@@ -99,3 +99,16 @@ text-shadow: 0.5px 0.5px 0 rgb(18, 56, 139);
 .gamePage {
   margin-bottom: 50px;
 }
+ /* View Team Page */
+ .teamView {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 40px;
+ }
+ .viewPlayers {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+ }
