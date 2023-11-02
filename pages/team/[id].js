@@ -44,20 +44,26 @@ function ViewTeam() {
     <div>
       <div className="teamView">
         <div className="teamCard">
-          <Card style={{ width: '400px', margin: '10px' }}>
+          <Card style={{ width: '600px', margin: '10px' }}>
             <Card.Body>
-              <Card.Title className="teamTitle">{teamDetails.name}</Card.Title>
-              <Card.Img variant="top" src={teamDetails.image} alt={teamDetails.name} style={{ width: '350px' }} />
-              <h4>Sponsor Company: {teamDetails.sponsor}</h4>
-              <h4>Team Captain: {captainDetails[0]?.firstName} {captainDetails[0]?.lastName}<span style={{ color: '#fafafa' }}>⚽</span></h4>
-              <h4>Games Won: {teamDetails.gamesWon}</h4>
-              <h4>Games Lost: {teamDetails.gamesLost}</h4>
-              <Link href={`/team/edit/${teamDetails.id}`} passHref>
-                <Button className="editBtn m-2" variant="info">EDIT</Button>
-              </Link>
-              <Button variant="warning" onClick={deleteThisTeam} className="deleteBtn m-2">
-                DELETE
-              </Button>
+              <div className="viewTeamWrap">
+                <div>
+                  <Card.Img variant="top" src={teamDetails.image} alt={teamDetails.name} style={{ width: '300px', margin: '10px' }} />
+                </div>
+                <div>
+                  <Card.Title className="teamTitle">{teamDetails.name}</Card.Title>
+                  <h4>Sponsor Company: {teamDetails.sponsor}</h4>
+                  <h4>Team Captain: {captainDetails[0]?.firstName} {captainDetails[0]?.lastName}<span style={{ color: '#fafafa' }}>⚽</span></h4>
+                  <h4>Games Won: {teamDetails.gamesWon}</h4>
+                  <h4>Games Lost: {teamDetails.gamesLost}</h4>
+                  <Link href={`/team/edit/${teamDetails.id}`} passHref>
+                    <Button className="editBtn m-2" variant="outline-info">EDIT</Button>
+                  </Link>
+                  <Button variant="outline-warning" onClick={deleteThisTeam} className="deleteBtn m-2">
+                    DELETE
+                  </Button>
+                </div>
+              </div>
             </Card.Body>
           </Card>
         </div>

@@ -17,7 +17,7 @@ function Teams() {
 
   return (
     <div className="text-center my-4 teamPage">
-      <h1>TEAMS</h1>
+      <h1 className="header">TEAMS</h1>
       <Link href="/team/new" passHref>
         <Button size="sm" variant="outline-info" className="createBtn">New Team +</Button>
       </Link>

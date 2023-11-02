@@ -12,12 +12,12 @@ function GameCard({ gameObj, onUpdate }) {
   };
 
   return (
-    <Card style={{ width: '18rem', margin: '10px' }}>
+    <Card style={{ width: '18rem', margin: '15px auto' }}>
       <Card.Body>
-        <Card.Title>{gameObj.name}</Card.Title>
+        <Card.Title className="gameTitle">{gameObj.name}</Card.Title>
         <Card.Text>Date: {gameObj.createdAt}</Card.Text>
-        <Card.Text>Team 1: {gameObj.teams[0]?.name}</Card.Text>
-        <Card.Text>Team 2: {gameObj.teams[1]?.name}</Card.Text>
+        <Card.Text><span className="teamLine">Team 1:</span> {gameObj.teams[0]?.name}</Card.Text>
+        <Card.Text><span className="teamLine">Team 2:</span> {gameObj.teams[1]?.name}</Card.Text>
 
         <Button variant="outline-warning" onClick={deleteThisGame} className="m-2">
           DELETE

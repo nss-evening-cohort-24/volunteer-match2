@@ -22,7 +22,7 @@ function TeamCard({ teamObj, onUpdate }) {
   }, []);
 
   return (
-    <Card style={{ width: '18rem', margin: '10px' }}>
+    <Card style={{ width: '18rem', margin: '15px auto' }}>
       <Card.Img className="teamImg" variant="top" src={teamObj.image} alt={teamObj.name} style={{ height: '350px' }} />
       <Card.Body>
         <Card.Title className="teamTitle">{teamObj.name}</Card.Title>

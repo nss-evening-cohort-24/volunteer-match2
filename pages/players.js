@@ -20,7 +20,7 @@ function ShowPlayers() {
 
   return (
     <div className="text-center my-4">
-      <h1>PLAYERS</h1>
+      <h1 className="header">PLAYERS</h1>
       <Link href="/player/new" passHref>
         <Button size="sm" variant="outline-info" className="createBtn">New Player +</Button>
       </Link>
