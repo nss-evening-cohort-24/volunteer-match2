@@ -1,62 +1,56 @@
-# React/Next.js Template
+# KIDS PLAY SOCCER
 
-[See Live Demo of this Template](https://drt-next-js-template.netlify.app/)
-
-## Topics
-- [Get Started](#get-started)
-- [Starting the Project](#starting-the-project)
-- [Using axios](#using-axios)
-- [Deploying on Netlify](#deploying-on-netlify)
-___
-## Getting Started
-### Use Template
-#### 1. To get started, click the GREEN "Use this Template" button at the top of the repo
-<img width="915" alt="Screen Shot 2022-07-06 at 12 54 01 PM" src="https://user-images.githubusercontent.com/29741570/177612998-4aac9237-5a1e-4f13-8ae0-468587521564.png">
-
-#### 2. Make sure YOUR github account is selected in the dropdown and name your project
-<img width="763" alt="Screen Shot 2022-07-06 at 12 54 48 PM" src="https://user-images.githubusercontent.com/29741570/177613126-dd38f678-7553-4f27-8a4a-75680f14d71e.png">
-
-#### 3. Clone your new repo to your local machine
-#### 4. Go to the **NEXT** section
-
-## Starting the Project
-1. Create a Firebase project and set up authentication. Use [these videos](https://vimeo.com/showcase/codetracker-firebase) as a refresher if needed.
-1. Create a `.env` file at the root of the project
-1. Copy/Paste the contents of the `.env.sample` file to your newly created `.env` file.
-1. Copy over all of your Firebase values into the `.env` file.
-1. Open the `package.json` file and change the `name` property to the name of your application, and `author` to  your name.
-1. From your command line, be in the root directory and run `npm install` OR `npm i` for short.
-1. Next, run `npm run prepare`. This command sets up husky to track eslint errors on commit that will make your deploy fail on Netlify.
-1. To start your application, run `npm run dev`. THIS IS THE COMMAND YOU WILL USE TO RUN YOUR DEVELOPMENT SERVER FROM NOW ON.
-1. Open [http://localhost:3000](http://localhost:3000) with your browser.
-
-### If you see this, you are set to go!
-<img width="450" alt="Screen Shot 2022-07-06 at 1 07 27 PM" src="https://user-images.githubusercontent.com/29741570/177615077-9b6a75bc-0260-4d29-bb88-bd95a3140687.png">
+Are you a company or an individual that is looking to make a difference in the lives of children that come from low income families? Are you looking to lend a helping hand and be a role-model in these kiddos' lives? What better way to to help these kids enjoy their childhood, than to volunteer your time and be a soccer coach for these kiddos?  This would be a free for the kiddos to join, and a company can be the sponsor to pay for the soccer expenses for the team (uniforms, balls, waters, shoes, and socks), and another volunteer can sign up to put a team together and schedule the games.
 
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+## Get Started 
+First, clone this repo. Pick your favorite text editor. In your terminal, enter the following:
 
-**NOTES:** 
-- If you see the following error, you did not follow all the setup steps correctly and failed to add your Firebase creds. Go back and do that NOW.
+```
+npm run dev
+```
+This will stand the live server. Authenticate with your email - choosing your soccer team awaits!
 
-<img width="1043" alt="Screen Shot 2022-07-06 at 11 18 45 AM" src="https://user-images.githubusercontent.com/29741570/177612501-c2628f18-4bbd-4de9-aae6-27ffba1172d6.png">
+## About the User 
+- We were comissioned by the high lords of hip hop - the owners of HHPW - to create this application. Ideally, volunteers will authenticate through FireBase Auth, and utilize the pgAdmin database system to create/edit teams, players, and add players to teams, schedule a game between two teams, and delete any one of these entities. 
 
-### Deploying on Netlify
-Netlify will automatically detect your project and prepopulate the settings, but should something go wrong and it does not, here are the commands:
+## Features <!-- List your app features using bullets! Do NOT use a paragraph. No one will read that! -->
+- A CRUD application featuring persistent storage within a pgAdmin storage database. 
+- Authenticated users can log in and CREATE: teams, players, and games.
+- Authenticated users can READ: created teams as well as the players associated with them, players individually and as a whole, games.
+- Authenticated users can UPDATE teams, players. 
+- Authenticated users (AUs) can DELETE: teams as well as people associated with that team, players individually, games.
 
-- Build Command: `npm run build`
-- Publish directory: `.next`
+## LOOMS OF KIDS PLAY SOCCER
+*Click below to see KIDS PLAY SOCCER in action!*
 
-#### Additional Steps to Take on Netlify
-- Add Environmental Variables
-    - Any Enviromental variables you are using in your `.env` file should be added to Netlify. 
-        - Go to Site settings > Build & deploy > Environment > Environment variables and the keys and values there.
 
-- Update Firebase URL Settings
-    - In Firebase under Authentication select sign in methods, scroll to Authorized domains. Add your Netlify URL.
-        
-## Learn More about Next.js
-To learn more about Next.js, take a look at the following resources:
+## Relevant Links <!-- Link to all the things that are required outside of the ones that have their own section -->
+- [figma](#https://www.figma.com/file/DMsPxvMaEgSOFun8u1sYqe/Pizza-and-Wing-Things?type=design&node-id=0-1&mode=design)
+- [Project Board](#https://github.com/orgs/nss-evening-cohort-24/projects/28/views/1)
+- [ERD? Sounds good to me!]![image](https://github.com/nss-evening-cohort-24/volunteer-match2/assets/119310701/0a3441e7-c1fa-49bd-8dc7-b4b6442735ab)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+
+## Code Snippet <!-- OPTIONAL, but doesn't hurt -->
+
+```
+![image](https://github.com/nss-evening-cohort-24/volunteer-match2/assets/119310701/3c83c3f4-f02c-487d-bc00-94252988a5f5)
+
+```
+
+
+## Project Screenshots <!-- These can be inside of your project. Look at the repos from class and see how the images are included in the readme -->
+![image](https://github.com/nss-evening-cohort-24/volunteer-match2/assets/119310701/bf06487f-cfae-4590-b9e0-cdb5ec798287)
+![image](https://github.com/nss-evening-cohort-24/volunteer-match2/assets/119310701/fa6a81de-70bf-4689-9b6e-362ffa1eca3e)
+![image](https://github.com/nss-evening-cohort-24/volunteer-match2/assets/119310701/4083ac35-db95-4bfe-ade4-d08daa9f08f9)
+![image](https://github.com/nss-evening-cohort-24/volunteer-match2/assets/119310701/230f85e9-7604-4a7e-a282-79d0cb48e9f5)
+![image](https://github.com/nss-evening-cohort-24/volunteer-match2/assets/119310701/bd11a268-2270-4ba7-8101-5766df27a785)
+
+
+
+## Contributors
+- [Shari Ebach](https://github.com/GitEbachS)
+- [Nathan Welton](https://github.com/nwelto)
+- [Alexis Hammer](https://github.com/ahammer1)
+- [Thomas Pencarinha](https://github.com/tjpenc)
+
