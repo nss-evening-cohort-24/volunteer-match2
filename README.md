@@ -23,7 +23,7 @@ This will stand the live server. Authenticate with your email - choosing your so
 
 ## LOOMS OF KIDS PLAY SOCCER
 *Click below to see KIDS PLAY SOCCER in action!*
-[Shari Ebach](#https://www.loom.com/share/cea077615fbd41a4bec99f1d4cf8cdf6?sid=2ef0d648-cfa7-436f-9d8b-9e31b27f968e)
+https://www.loom.com/share/cea077615fbd41a4bec99f1d4cf8cdf6?sid=02e50750-d4d8-4f52-bf09-67b158a3f278
 
 ## Relevant Links <!-- Link to all the things that are required outside of the ones that have their own section -->
 - [figma](#https://www.figma.com/file/DMsPxvMaEgSOFun8u1sYqe/Pizza-and-Wing-Things?type=design&node-id=0-1&mode=design)
