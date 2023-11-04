@@ -1,12 +1,9 @@
 import React, { useEffect, useState } from 'react';
-// import { useAuth } from '../utils/context/authContext';
 import { getGames } from '../api/gameData';
 import GameCard from '../components/GameCard';
 
 function ShowGames() {
   const [gameDetails, setGameDetails] = useState([]);
-
-  // const { user } = useAuth();
 
   const getAllGames = () => {
     getGames().then(setGameDetails);
