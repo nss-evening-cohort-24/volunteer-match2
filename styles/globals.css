@@ -146,6 +146,8 @@ text-shadow: 0.5px 0.5px 0 rgb(18, 56, 139);
   font-size: 50px;
   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-weight: 700;
+  border: 1.5px solid rgb(212, 214, 202);
+  background-color: rgb(81, 84, 100);
 }
 .teamLine {
 color: rgb(204, 204, 20);
@@ -167,7 +169,12 @@ color: rgb(204, 204, 20);
  .viewPlayers {
   display: flex;
   flex-wrap: wrap;
+  flex-direction: row;
+  width: 850px;
   justify-content: center;
+  align-items: center;
+  border-top: 2px solid rgb(218, 216, 111);
+  padding-top: 20px;
  }
 .viewTeamWrap {
   display: flex;
@@ -175,4 +182,8 @@ color: rgb(204, 204, 20);
 }
 .teamCard {
   margin-bottom: 40px;
+}
+/* View Players Page  */
+.playerView {
+  margin-top: 40px;
 }

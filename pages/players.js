@@ -24,7 +24,7 @@ function ShowPlayers() {
       <Link href="/player/new" passHref>
         <Button size="sm" variant="outline-info" className="createBtn">New Player +</Button>
       </Link>
-      <div className="d-flex flex-wrap">
+      <div className="d-flex flex-wrap playerView">
         {playerDetails.map((player) => (
           <PlayerCard key={player.id} playerObj={player} teamName={player.teamObject?.name} onUpdate={getAllPlayers} />
         ))}

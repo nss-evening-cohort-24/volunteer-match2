@@ -38,7 +38,7 @@ function ViewPlayer() {
 
   return (
     <div>
-      <div className="teamView">
+      <div className="playerView">
         <Card style={{ width: '400px', margin: '10px' }}>
           <Card.Body>
             <Card.Title className="teamTitle">{playerDetails.firstName} {playerDetails.lastName}{playerDetails.isCaptain && <span style={{ color: '#fafafa' }}>⚽</span>}</Card.Title>
@@ -47,9 +47,9 @@ function ViewPlayer() {
             <h6>Position: {playerDetails.position}</h6>
             <Card.Text>Team: {team.name}</Card.Text>
             <Link href={`/player/edit/${playerDetails.id}`} passHref>
-              <Button className="editBtn m-2" variant="dark">EDIT</Button>
+              <Button className="editBtn m-2" variant="outline-info">EDIT</Button>
             </Link>
-            <Button variant="danger" onClick={deleteThisPlayer} className="deleteBtn m-2">
+            <Button variant="outline-warning" onClick={deleteThisPlayer} className="deleteBtn m-2">
               DELETE
             </Button>
           </Card.Body>
